@@ -6,7 +6,7 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 15:36:11 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/11/18 11:03:05 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2020/11/20 16:21:14 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 	while (i < n)
 	{
 		if (((unsigned char*)src)[i] == (unsigned char)c)
-			return ((unsigned char*)dest + i);
+			return ((unsigned char *)dest + i);
 		((unsigned char*)dest)[i] = ((unsigned char*)src)[i];
 		i++;
 	}

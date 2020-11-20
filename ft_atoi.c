@@ -6,24 +6,40 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 15:32:38 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/11/17 12:28:20 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2020/11/20 16:35:32 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+int	ft_atoi(const char *str)
 {
+	int neg;
 	int i;
-	int value;
+	int num;
 
 	i = 0;
-	value = 0;
-	while (ft_isdigit((nptr[i])))
+	neg = 1;
+	num = 0;
+	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' ||
+			str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
+		i++;
+	if (str[i] == '-')
 	{
-		value *= 10;
-		value += nptr[i] - 48;
+		neg *= -1;
 		i++;
 	}
-	return (value);
+	else if (str[i] == '+')
+	{
+		neg *= 1;
+		i++;
+	}
+	else
+		while (str[i] >= '0' && str[i] <= '9')
+		{
+			num = num * 10 + (str[i] - 48);
+			i++;
+		}
+	num *= neg;
+	return (num);
 }
