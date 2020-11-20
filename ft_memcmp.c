@@ -5,25 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/16 15:48:24 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/11/18 14:06:01 by dpoinsu          ###   ########.fr       */
+/*   Created: 2020/11/20 21:22:48 by dpoinsu           #+#    #+#             */
+/*   Updated: 2020/11/20 21:23:50 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t i;
+	unsigned char	*str1;
+	unsigned char	*str2;
 
-	i = 0;
-	if (n == 0)
-		return (0);
-	while (i < n)
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
+	while (n > 0)
 	{
-		if (((unsigned char*)s2)[i] == ((unsigned char*)s1)[n - 1])
-			return (0);
-		i++;
+		if (*str1 != *str2)
+			return (*str1 - *str2);
+		str1++;
+		str2++;
+		n--;
 	}
-	return (-1);
+	return (0);
 }

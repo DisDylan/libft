@@ -6,7 +6,7 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 15:51:26 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/11/18 14:13:57 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2020/11/20 21:38:29 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,24 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t i;
+	size_t			i;
+	unsigned char	*str1;
+	unsigned char	*str2;
 
-	if (!dest || !src)
-		return (NULL);
-	if (dest > src)
-	{
-		i = n - 1;
-		while (i >= 0)
-		{
-			*(char*)(dest + i) = *(char*)(src + i);
-			i--;
-		}
-	}
-	else
-	{
-		i = 0;
+	i = 0;
+	str1 = (unsigned char *)dest;
+	str2 = (unsigned char *)src;
+	if (str1 > str2)
 		while (i < n)
 		{
-			*(char*)(dest + i) = *(char*)(src + i);
+			str1[n - 1] = str2[n - 1];
+			n--;
+		}
+	else
+		while (i < n)
+		{
+			str1[i] = str2[i];
 			i++;
 		}
-	}
 	return (dest);
 }
