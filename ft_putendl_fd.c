@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 15:44:45 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/11/17 15:46:40 by dpoinsu          ###   ########.fr       */
+/*   Created: 2020/11/19 11:06:17 by dpoinsu           #+#    #+#             */
+/*   Updated: 2020/11/19 11:39:37 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_toupper(int c)
+void	ft_putendl_fd(char *s, int fd)
 {
-	if (c >= 97 && c <= 122)
-		c -= 32;
-	return (c);
+	ft_putstr_fd(s, fd);
+	write(fd, "\n", 1);
 }

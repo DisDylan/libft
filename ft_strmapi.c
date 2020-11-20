@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 15:44:45 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/11/17 15:46:40 by dpoinsu          ###   ########.fr       */
+/*   Created: 2020/11/19 10:57:34 by dpoinsu           #+#    #+#             */
+/*   Updated: 2020/11/19 11:00:05 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_toupper(int c)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	if (c >= 97 && c <= 122)
-		c -= 32;
-	return (c);
+	char	*str;
+	size_t	i;
+
+	if (!(str = ft_strdup(s)))
+		return (NULL);
+	i = 0;
+	while (str[i])
+	{
+		str[i] = (*f)(i, str[i]);
+		i++;
+	}
+	return (str);
 }

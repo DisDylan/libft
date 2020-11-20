@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 15:44:45 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/11/17 15:46:40 by dpoinsu          ###   ########.fr       */
+/*   Created: 2020/11/18 14:30:41 by dpoinsu           #+#    #+#             */
+/*   Updated: 2020/11/18 14:38:30 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_toupper(int c)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	if (c >= 97 && c <= 122)
-		c -= 32;
-	return (c);
+	size_t	i;
+	char	*str;
+
+	if (!(str = (char *)malloc(sizeof(s) * len)))
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		str[i] = s[start + i];
+		i++;
+	}
+	return (str);
 }

@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 15:44:45 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/11/17 15:46:40 by dpoinsu          ###   ########.fr       */
+/*   Created: 2020/11/16 15:33:58 by dpoinsu           #+#    #+#             */
+/*   Updated: 2020/11/18 11:01:56 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_toupper(int c)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	if (c >= 97 && c <= 122)
-		c -= 32;
-	return (c);
+	void *str;
+
+	if (nmemb == 0 || size == 0)
+		return (NULL);
+	if (!(str = (void *)malloc(nmemb * size)))
+		return (NULL);
+	ft_bzero(str, nmemb);
+	return (str);
 }
