@@ -6,45 +6,55 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 16:09:12 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/11/19 09:58:54 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2020/11/23 10:23:29 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	get_size(int s)
+static int	ft_abs(int n)
 {
-	int t;
+	if (n < 0)
+		return (n *= -1);
+	return (n);
+}
 
-	t = 1;
-	while (s >= 1)
+static void	ft_strrev(char *str)
+{
+	size_t	length;
+	size_t	i;
+	char	swap;
+
+	length = ft_strlen(str);
+	i = 0;
+	while (i < length / 2)
 	{
-		s = s / 10;
-		t++;
+		swap = str[i];
+		str[i] = str[length - i - 1];
+		str[length - i - 1] = swap;
+		i++;
 	}
-	return (t);
 }
 
 char		*ft_itoa(int n)
 {
 	char	*str;
-	size_t	size;
-	size_t	i;
+	int		is_neg;
+	size_t	len;
 
-	i = 0;
-	size = get_size(n);
-	if (!(str = (char *)malloc(sizeof(str) * (size))))
+	is_neg = (n < 0);
+	if (!(str = ft_calloc(11 + is_neg, sizeof(*str))))
 		return (NULL);
-	if (n < 0)
+	if (n == 0)
+		str[0] = '0';
+	len = 0;
+	while (n != 0)
 	{
-		str[i] = '-';
-		i++;
+		str[len++] = '0' + ft_abs(n % 10);
+		n = (n / 10);
 	}
-	while (n > 0)
-	{
-		str[i] = n % 10;
-		n /= 10;
-		i++;
-	}
+	if (is_neg)
+		str[len] = '-';
+	ft_strrev(str);
 	return (str);
 }
