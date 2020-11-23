@@ -18,7 +18,10 @@ CFLAGS	= -Wall -Wextra -Werror
 ${NAME}:	${OBJS}
 			ar -rc ${NAME} ${OBJS}
 			ranlib ${NAME}
-		
+
+so:
+		${GCC} -fPIC ${CFLAGS} ${SRCS}
+		clang -shared -o libft.so  ${OBJS}
 
 all:		${NAME}
 

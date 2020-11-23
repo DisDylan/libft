@@ -6,7 +6,7 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 15:36:11 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/11/20 21:40:06 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2020/11/23 14:16:51 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
 	size_t i;
 
-	if (!dest || !src)
-		return (NULL);
 	i = 0;
 	while (i < n)
 	{
