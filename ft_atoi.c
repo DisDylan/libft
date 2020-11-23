@@ -6,7 +6,7 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 15:32:38 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/11/23 14:58:46 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2020/11/23 16:05:11 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atoi(const char *str)
 {
-	int		neg;
-	int		i;
-	long	num;
+	int	neg;
+	int	i;
+	int num;
 
 	i = 0;
 	neg = 1;
