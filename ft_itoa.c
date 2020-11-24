@@ -6,7 +6,7 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 16:09:12 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/11/23 10:23:29 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2020/11/24 15:13:50 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,28 @@ static void	ft_strrev(char *str)
 	}
 }
 
+static int	ft_count(int n)
+{
+	int i;
+
+	i = 0;
+	if (n < 0)
+		n *= -1;
+	while (n > 0)
+	{
+		n /= 10;
+		i++;
+	}
+	return (i + 1);
+}
+
+static char	*ft_zero(char *str)
+{
+	str[0] = '0';
+	str[1] = '\0';
+	return (str);
+}
+
 char		*ft_itoa(int n)
 {
 	char	*str;
@@ -43,10 +65,14 @@ char		*ft_itoa(int n)
 	size_t	len;
 
 	is_neg = (n < 0);
-	if (!(str = ft_calloc(11 + is_neg, sizeof(*str))))
+	if (!(str = (char*)malloc(sizeof(*str) * ft_count(n) + is_neg)))
 		return (NULL);
 	if (n == 0)
-		str[0] = '0';
+	{
+		if (!(str = (char*)malloc(sizeof(*str) * 2)))
+			return (NULL);
+		return (ft_zero(str));
+	}
 	len = 0;
 	while (n != 0)
 	{
@@ -54,7 +80,8 @@ char		*ft_itoa(int n)
 		n = (n / 10);
 	}
 	if (is_neg)
-		str[len] = '-';
+		str[len++] = '-';
+	str[len] = '\0';
 	ft_strrev(str);
 	return (str);
 }

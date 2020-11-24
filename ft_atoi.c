@@ -6,17 +6,24 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 15:32:38 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/11/23 16:05:33 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2020/11/24 15:06:55 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+static int	over(int neg)
 {
-	int	neg;
-	int	i;
-	int num;
+	if (neg == -1)
+		return (0);
+	return (-1);
+}
+
+int			ft_atoi(const char *str)
+{
+	int				neg;
+	int				i;
+	unsigned long	num;
 
 	i = 0;
 	neg = 1;
@@ -24,18 +31,18 @@ int	ft_atoi(const char *str)
 	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' ||
 			str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
 		i++;
-	if (str[i] == '-')
+	if (str[i] == '-' || str[i] == '+')
 	{
-		neg *= -1;
+		if (str[i] == '-')
+			neg *= -1;
 		i++;
 	}
-	else if (str[i] == '+')
-		i++;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		num = num * 10 + (str[i] - 48);
 		i++;
 	}
-	num *= neg;
-	return (num);
+	if (num > 9223372036854775807)
+		return (over(neg));
+	return ((int)num * neg);
 }

@@ -6,7 +6,7 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 10:57:34 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/11/19 11:00:05 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2020/11/24 14:45:15 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*str;
 	size_t	i;
 
+	if (!s)
+		return (NULL);
 	if (!(str = ft_strdup(s)))
 		return (NULL);
 	i = 0;
