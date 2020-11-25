@@ -6,17 +6,20 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 16:09:12 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/11/24 15:13:50 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2020/11/25 09:24:01 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_abs(int n)
+static long	ft_abs(int n)
 {
-	if (n < 0)
-		return (n *= -1);
-	return (n);
+	long nb;
+
+	nb = n;
+	if (nb < 0)
+		return (nb *= -1);
+	return (nb);
 }
 
 static void	ft_strrev(char *str)
@@ -38,14 +41,16 @@ static void	ft_strrev(char *str)
 
 static int	ft_count(int n)
 {
-	int i;
+	int		i;
+	long	nb;
 
+	nb = n;
 	i = 0;
-	if (n < 0)
-		n *= -1;
-	while (n > 0)
+	if (nb < 0)
+		nb *= -1;
+	while (nb > 0)
 	{
-		n /= 10;
+		nb /= 10;
 		i++;
 	}
 	return (i + 1);

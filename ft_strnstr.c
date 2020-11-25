@@ -6,7 +6,7 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 15:22:45 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/11/23 14:38:15 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2020/11/25 09:17:23 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		return (NULL);
 	if (!little || (little[0] == '\0' && len == 0))
 		return ((char*)big);
+	if (little[0] == '\0' && big[0] == '\0')
+		return ("\0");
 	while (big[i] && i < len)
 	{
 		j = 0;
