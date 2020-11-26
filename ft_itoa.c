@@ -70,14 +70,14 @@ char		*ft_itoa(int n)
 	size_t	len;
 
 	is_neg = (n < 0);
-	if (!(str = (char*)malloc(sizeof(*str) * ft_count(n) + is_neg)))
-		return (NULL);
 	if (n == 0)
 	{
 		if (!(str = (char*)malloc(sizeof(*str) * 2)))
 			return (NULL);
 		return (ft_zero(str));
 	}
+	if (!(str = (char*)malloc(sizeof(*str) * ft_count(n) + is_neg)))
+		return (NULL);
 	len = 0;
 	while (n != 0)
 	{
